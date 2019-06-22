@@ -1,5 +1,5 @@
 {
-  "name": "tiny-server",
+  "name": "tiny-server-i-o",
   "version": "0.1.0",
   "description": "node.js static web server",
   "main": "src/app.js",
