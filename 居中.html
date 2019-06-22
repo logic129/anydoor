@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+       /* body{
+            width: 100%;
+            height: 100%;
+        }
+        div{
+            width: 50%;
+            padding-top: 100%;
+            background-color: black;
+        }*/
+        /*div{
+            width:0;
+            height:0;
+            border-top: 100px solid transparent;
+            border-right: 100px solid transparent;
+            border-bottom: 100px solid transparent;
+            border-left: 100px solid red;
+        }*/
+        #parent{
+            width: 500px;
+            height: 500px;
+            border: 1px solid black;
+            text-align: center;
+            /*line-height: 500px;*/
+            /*vertical-align: middle;*/
+            display: table;
+        }
+        #child{
+            display: table-cell;
+            vertical-align: middle;
+            border: 1px solid red;
+        }
+        body{
+            height:2000px
+        }
+    </style>
+</head>
+<body>
+<!--<header>头部</header>
+<main>
+    <section>标题</section>
+    <article>文章内容</article>
+</main>
+<footer>商标</footer>-->
+<!--<div id="parent">
+    <span id="child">aaa</span>
+</div>-->
+<script>
+    /*function Debounce(fn,delay){
+        var timeId;
+        return function(){
+            var that=this,args=arguments;
+            timeId&&clearTimeout(timeId);
+            timeId=setTimeout(function(){
+                fn.apply(that,args)
+            },delay)
+        }
+    }
+    function Fun(){
+        console.log('1')
+    }
+    var event=Debounce(Fun,1000);
+    window.onscroll=function(){
+        event();
+    }*/
+
+    /*function Trottle(fn,delay){
+        var flag=false;
+        return function(){
+            var that=this,args=arguments;
+            if(!flag){
+                flag=setTimeout(function(){
+                    fn.apply(that,args);
+                    flag=false
+                },delay)
+            }
+        }
+    }*/
+    /*function Trottle(fn,delay){
+        var start=Date.now(),end;
+        return function(){
+            end=Date.now();
+            if(end-start>delay){
+                start=end;
+                fn.apply(this,arguments)
+            }
+        }
+    }
+    function Fun(){
+        console.log('1')
+    }
+    var event=Trottle(Fun,1000);
+    window.onscroll=function(){
+        event();
+    }*/
+    /*Function.prototype.my_bind=function(){
+        var self=this;
+        var context=Array.prototype.shift.call(arguments);
+        var args=Array.prototype.slice.call(arguments);
+        return function(){
+            var arg_all=Array.prototype.concat(args,Array.prototype.slice.call(arguments));
+            console.log(arg_all)
+            self.apply(context,arg_all);
+        }
+    }
+    function a(job,age){
+        console.log(this.name)
+        console.log(job);
+        console.log(age);
+    }
+    a();
+    function b(){
+        this.name='a'
+    }
+    a.bind(b,'doctor')('55');
+    a.my_bind(b,'doctor')('55');*/
+   /* var div=document.createElement('div');
+    document.body.appendChild(div);
+    div.style.width='50%';
+//    div.style.height=div.offsetWidth+'px';
+    div.style.paddingTop='100%'
+    div.style.border='1px solid black'*/
+    /*var a=[];
+    for(var i=0;i<3;i++){
+        a[i]=(function(i){
+            return function(){
+                console.log(i)
+            }
+        })(i)
+    }
+    console.log(a[1]())*/
+
+    /*function Test(){
+        console.log(Test1)
+        function Test1(){
+            console.log('1')
+        }
+    }
+    Test()*/
+    /*console.log(a);
+//    console.log(b);
+    console.log(fun1);
+    console.log(fun2);
+    var a=10;
+    b=20;
+    fun1();
+    fun2();
+    function fun1(){
+        console.log("执行了fun1函数");
+    }
+
+    var fun2=function(){
+        console.log("执行了fun2函数");
+    }*/
+    /*function  foo(){
+        this.a=1;
+        alert(this.a);
+    }
+    foo()// 2*/
+    /*function  foo(){
+        alert(this.a);
+    }
+    var obj = {
+        a:2,
+        foo:foo
+    };
+    var a='hello'
+    var b=obj.foo   //a取得的是foo的引用，所以调用时this绑定的是window
+    b();*/
+    /*var a=2;
+    var obj={
+        b:3
+    }
+    function foo(str){
+        'use strict';   //正常模式下，JS有两种作用域：全局和函数。eval语句的作用域取决于他处于全局还是函数
+        eval(str);    //严格模式，创设了第三种作用域：eval，它生成的变量只能在它的内部使用
+    }
+    function boz(data,param){
+        with (data){
+            c=param;
+        }
+    }
+    foo("var a=4;")
+    if(obj.b>a){
+        boz(obj,true);
+    }else{
+        boz(obj,false);
+    }*/
+    /*var str='abc';
+    arr=str.split('');
+    sort(arr,0);
+    function sort(str,num){
+        if(num==3){
+            console.log(str.join(''));
+            return;
+        }
+        for(var i=num;i<str.length;i++){
+            var t=str[i];
+            str[i]=str[num];
+            str[num]=t;
+            sort(str,num+1);
+            t=str[i];
+            str[i]=str[num];
+            str[num]=t;
+        }
+    }*/
+</script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+    /*axios.post('hhh',{
+        id:99,
+        name:'ferio'
+    }).then(function(response){
+        console.log(response)
+    }).catch(function(err){
+        console.log(err)
+    })
+
+    axios.post('/user', {
+        firstName: 'Fred',
+        lastName: 'Flintstone'
+    }).then(function (response) {
+        console.log(response);
+    }).catch(function (error) {
+        console.log(error);
+    });*/
+    /*axios({
+        method:'post',
+        url:'hhh',
+        /!*params:{
+            id:1
+        },*!/
+        data:{
+            first:1,
+            second:2
+        }
+    }).then(function(res){
+        console.log(res)
+    }).catch(function(err){
+        console.log(err)
+    })*/
+//    axios('hhh')
+    /*var str='AGCT';
+    var arr=str.split('');
+    var a=[],b=[],c=[],d=[];
+    sort(arr,0);
+    function sort(arr,num){
+        if(num==arr.length){
+//            console.log(arr.join(''));
+            d.push(arr.join(''))
+            return;
+        }
+        if(num==3){
+//            console.log(arr.join('').slice(0,3));
+            c.push(arr.join('').slice(0,3))
+        }
+        if(num==2){
+//            console.log(arr.join('').slice(0,2));
+            b.push(arr.join('').slice(0,2))
+        }
+        if(num==1){
+//            console.log(arr.join('').slice(0,1));
+            a.push(arr.join('').slice(0,1))
+        }
+        for(var i=num;i<arr.length;i++){
+            var t=arr[i];
+            arr[i]=arr[num];
+            arr[num]=t;
+            sort(arr,num+1);
+            t=arr[i];
+            arr[i]=arr[num];
+            arr[num]=t;
+        }
+    }
+    /!*console.log(a,b,c,d);
+    var dnaStr='AGGTCTA',sign;
+    for(var i=0;i< d.length;i++){
+        if(dnaStr.indexOf(d[i])==-1){
+//            return 4;
+            sign=4;
+            break;
+        }
+    }
+    for(var i=0;i< c.length;i++){
+        if(dnaStr.indexOf(c[i])==-1){
+//            console.log('3')
+//            return 3;
+            sign=3;
+            break
+        }
+    }
+    for(var i=0;i< b.length;i++){
+        if(dnaStr.indexOf(b[i])==-1){
+//            console.log('2')
+//            return 2;
+            sign=2;
+            break
+        }
+    }
+    for(var i=0;i< a.length;i++){
+        if(dnaStr.indexOf(a[i])==-1){
+//            console.log('1')
+//            return 1;
+            sign=1;
+            break
+        }
+    }*!/
+
+    console.log(sign)*/
+    /*var str='abc';
+    var arr=str.split('')
+    sort(arr,0)
+    function sort(arr,num){
+        if(num==arr.length){
+            console.log(arr.join(''));
+//            d.push(arr.join(''))
+            return;
+        }
+        if(num==3){
+            console.log(arr.join('').slice(0,3));
+//            c.push(arr.join('').slice(0,3))
+        }
+        if(num==2){
+            console.log(arr.join('').slice(0,2));
+//            b.push(arr.join('').slice(0,2))
+        }
+        if(num==1){
+            console.log(arr.join('').slice(0,1));
+//            a.push(arr.join('').slice(0,1))
+        }
+        for(var i=num;i<arr.length;i++){
+            var t=arr[i];
+            arr[i]=arr[num];
+            arr[num]=t;
+            sort(arr,num+1);
+            t=arr[i];
+            arr[i]=arr[num];
+            arr[num]=t;
+        }
+    }*/
+
+    function Plane(){
+    }
+    Plane.prototype.fire=function(){
+        console.log('1')
+    }
+    function newPlane(plane){
+        this.plane=plane
+    }
+    newPlane.prototype.fire=function(){
+        this.plane.fire()
+        console.log('2')
+    }
+    function anotherPlane(plane){
+        this.plane=plane
+    }
+    anotherPlane.prototype.fire=function(){
+        this.plane.fire()
+        console.log('3')
+    }
+    var plane=new Plane();
+    plane=new newPlane(plane);
+    plane=new anotherPlane(plane);
+    plane.fire()
+</script>
+</body>
+</html>
