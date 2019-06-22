@@ -3,7 +3,6 @@ const promisify=require('util').promisify;
 const stat=promisify(fs.stat);
 const readdir=promisify(fs.readdir);
 const path=require('path');
-const conf=require('../config/defaultConfig')
 const HandleBars=require('handlebars');
 const tplPath=path.join(__dirname,'../template/dir.tpl');
 const source=fs.readFileSync(tplPath);
@@ -12,7 +11,7 @@ const mime=require('../helper/mime');
 const compress=require('../helper/compress');
 const range=require('../helper/range');
 const isFresh=require('../helper/cache');
-module.exports=async function(req,res,filePath){
+module.exports=async function(req,res,filePath,conf){
     try{
         const stats=await stat(filePath);
         if(stats.isFile()){
